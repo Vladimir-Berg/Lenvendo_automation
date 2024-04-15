@@ -7,4 +7,4 @@ def get_phones(api_client):
     data = response.json()
     data = data['products']
     objects = [JsTestTask(**item) for item in data]
-    print(objects)
+    return objects
