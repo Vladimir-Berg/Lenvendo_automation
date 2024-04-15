@@ -1,3 +1,4 @@
+
 class BaseApp:
 
     def __init__(self, driver):

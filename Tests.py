@@ -1,5 +1,6 @@
 from CardsPage import CardDenominations
 import time
+from ModelAPI import JsTestTask
 
 
 def test_click_value_of_cards(browser):
@@ -15,3 +16,13 @@ def test_click_value_of_cards(browser):
             active = True
         assert active == True
         assert text == main_page.get_value_from_field()
+
+
+def test_get_todo(api_client):
+    url = "https://www.lenvendo.ru/api/js-test-task/?search=Alcatel&sort_field=name"
+    response = api_client.get(url)
+    data = response.json()
+    data = data['products']
+    objects = [JsTestTask(**item) for item in data]
+    print(objects)
+#    assert data["title"] == "delectus aut autem"
