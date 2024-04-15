@@ -19,6 +19,14 @@ class CardDenominations(BaseApp):
         list_of_denominations = wd.find_elements(By.CLASS_NAME, 'par-options__button')
         return list_of_denominations
 
+    def check_value_and_active(self, list_of_denominations, x):
+        list_of_denominations[x].click()
+        text = list_of_denominations[x].text
+        active = False
+        if 'par-options__button--active' in list_of_denominations[x].get_attribute('class'):
+            active = True
+        return active, text
+
     def get_value_from_field(self):
         wd = self.driver
         value_input = wd.find_element(By.XPATH, '//*[@id="range-value-input"]').get_attribute("value")
