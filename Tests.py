@@ -10,4 +10,8 @@ def test_click_value_of_cards(browser):
     for x in range(0, len(list_of_denominations)):
         list_of_denominations[x].click()
         text = list_of_denominations[x].text
+        active = False
+        if 'par-options__button--active' in list_of_denominations[x].get_attribute('class'):
+            active = True
+        assert active == True
         assert text == main_page.get_value_from_field()
