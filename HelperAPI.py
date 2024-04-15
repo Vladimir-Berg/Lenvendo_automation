@@ -8,3 +8,14 @@ def get_phones(api_client):
     data = data['products']
     objects = [JsTestTask(**item) for item in data]
     return objects
+
+
+def check_string_in_names(list_of_names):
+    a = True
+    for item in list_of_names:
+        if "Alcatel" in item.name:
+            print("\n" + 'GOOD')
+        if "Alcatel" not in item.name:
+            a = False
+            break
+    return a

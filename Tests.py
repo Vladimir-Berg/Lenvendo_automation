@@ -16,13 +16,6 @@ def test_click_value_of_cards(browser):
 
 def test_get_todo(api_client):
     list_of_names = HelperAPI.get_phones(api_client)
-    a = True
-    for item in list_of_names:
-        if "Alcatel" in item.name:
-            print("\n" + 'GOOD')
-        if "Alcatel" not in item.name:
-            a = False
-            break
+    a = HelperAPI.check_string_in_names(list_of_names)
     assert a == True
-
-#    assert data["title"] == "delectus aut autem"
+    assert sorted(list_of_names) == list_of_names
