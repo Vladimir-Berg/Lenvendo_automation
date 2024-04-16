@@ -1,11 +1,7 @@
 import HelperAPI
-import Tests
 from CardsPage import CardDenominations
 import time
 import allure
-
-
-Tests.count = 0
 
 
 @allure.title("Check active and selected card value in input-field")
@@ -22,9 +18,6 @@ def test_click_value_of_cards(browser):
                 assert active == True
             with allure.step(f"Check selected card value in input-field: {main_page.get_value_from_field()}"):
                 assert text == main_page.get_value_from_field()
-    Tests.count += 1
-
-
 
 
 @allure.title("Test API")
@@ -35,5 +28,3 @@ def test_check_sorting_and_alcatel(api_client):
         assert a == True
     with allure.step("Right sorting"):
         assert sorted(list_of_names) == list_of_names
-    Tests.count += 1
-    print(">>>>>>>>>>>>>>>>>>>>>", Tests.count)
