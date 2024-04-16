@@ -15,7 +15,7 @@ def test_click_value_of_cards(browser):
 
 
 def test_get_todo(api_client):
-    list_of_names = HelperAPI.get_phones(api_client)
+    list_of_names = HelperAPI.js_test_task(api_client)
     a = HelperAPI.check_string_in_names(list_of_names)
     assert a == True
     assert sorted(list_of_names) == list_of_names
