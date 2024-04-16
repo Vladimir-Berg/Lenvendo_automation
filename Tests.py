@@ -21,7 +21,7 @@ def test_click_value_of_cards(browser):
 
 
 @allure.title("Test API")
-def test_get_todo(api_client):
+def test_check_sorting_and_alcatel(api_client):
     list_of_names = HelperAPI.js_test_task(api_client)
     a = HelperAPI.check_string_in_names(list_of_names)
     with allure.step("All names include 'Alcatel'"):
