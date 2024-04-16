@@ -1,8 +1,10 @@
 import HelperAPI
 from CardsPage import CardDenominations
 import time
+import allure
 
 
+@allure.title("click_value_of_cards")
 def test_click_value_of_cards(browser):
     main_page = CardDenominations(browser)
     main_page.open_base_page()
@@ -14,6 +16,7 @@ def test_click_value_of_cards(browser):
         assert text == main_page.get_value_from_field()
 
 
+@allure.title("Test API")
 def test_get_todo(api_client):
     list_of_names = HelperAPI.js_test_task(api_client)
     a = HelperAPI.check_string_in_names(list_of_names)
